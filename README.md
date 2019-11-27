@@ -6,9 +6,9 @@
 
 
 * [overall](overall.md)
-* process
-* network
-* performance
-* chaos
+* [process](process.md)
+* [network](network.md)
+* [performance](performance.md)
+* [chaos](chaos.md)
 
 ![linux observability tools](images/linux_observability_tools.png)
