@@ -1,3 +1,5 @@
+### startup
+![systemctl.jpg](images/systemctl.jpg)
 ### open files
 ### network sockets
 ### disk write/read
