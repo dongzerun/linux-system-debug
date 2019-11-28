@@ -1,5 +1,5 @@
 ## overall
-Know the current system status at a glance
+Know the current system status at a glance: cpu load, disk usage, network throughput
 
 #### w - Show who is logged on and what they are doing
 ```shell
@@ -87,9 +87,6 @@ Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
     2 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [kthreadd]
 ```
 
-#### iftop - display bandwidth usage on an interface by host
-![iftop](images/iftop.jpg)
-
 #### df - report file system disk space usage
 list disk spaces information
 ```shell
@@ -144,3 +141,6 @@ FRAG	  0         0         0
 
 #### nload - displays the current network usage
 ![nload](images/nload.jpg)
+
+#### iftop - display bandwidth usage on an interface by host
+![iftop](images/iftop.jpg)
