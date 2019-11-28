@@ -27,6 +27,25 @@ LISTEN      0            100                          [::]:25                   
 LISTEN      0            10240                           *:3002                           *:*           users:(("latest",pid=31036,fd=65))
 LISTEN      0            10240                           *:25000                          *:*           users:(("latest",pid=31036,fd=18))
 ```
+
+* list 
+```shell
+root@ip-10-10-0-175:~# ss -anto
+TIME-WAIT     0           0                          10.10.0.175:7946                        10.10.0.13:34136       timer:(timewait,4.748ms,0)
+ESTAB         0           0                          10.10.0.175:42440                     10.10.56.165:9094
+ESTAB         0           0                          10.10.0.175:51444                     10.196.41.33:9094        timer:(keepalive,8.956ms,0)
+TIME-WAIT     0           0                            127.0.0.1:17656                        127.0.0.1:5066        timer:(timewait,8.972ms,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                       10.10.3.232:28114       timer:(timewait,36sec,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                       10.10.53.38:54844       timer:(timewait,44sec,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                        10.10.0.75:18628       timer:(timewait,9.568ms,0)
+TIME-WAIT     0           0                          10.10.0.175:47160                      10.10.0.228:7946        timer:(timewait,18sec,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                       10.10.0.100:15568       timer:(timewait,49sec,0)
+ESTAB         0           0                          10.10.0.175:13182                     10.10.87.153:2379        timer:(keepalive,14sec,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                       10.10.3.232:28148       timer:(timewait,46sec,0)
+TIME-WAIT     0           0                          10.10.0.175:7946                       10.10.0.100:15418       timer:(timewait,11sec,0)
+TIME-WAIT     0           0                          10.10.0.175:20220                     52.219.124.7:443         timer:(timewait,,0)
+ESTAB         0           0                          10.10.0.175:12378                    10.196.39.136:9094        timer:(keepalive,5.632ms,0)
+```
 ### disk write/read
 ### cpu usage
 ### memory pagefault
