@@ -66,7 +66,7 @@ xvda             0.08   25.26      1.33    458.48     0.00     8.47   2.36  25.1
 ```
 #### iotop - simple top-like I/O monitor
 ```shell
-root@ip-10-10-0-175:~# iotop
+zerun.dong@ip-xx-xx-xx-xx:~$ iotop
 Total DISK READ :       0.00 B/s | Total DISK WRITE :     918.41 K/s
 Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
   TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
@@ -77,4 +77,41 @@ Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
 24081 be/4 syslog      0.00 B/s  208.01 K/s  0.00 %  0.00 % rsyslogd -n [rs:main Q:Reg]
     1 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % systemd --system --deserialize 40
     2 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [kthreadd]
+```
+
+#### iftop - display bandwidth usage on an interface by host
+![iftop](images/iftop.jpg)
+
+#### df - report file system disk space usage
+```shell
+list disk spaces information
+zerun.dong@ip-xx-xx-xx-xx:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           798M  820K  797M   1% /run
+/dev/xvda1       12G  5.0G  6.7G  43% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/loop1       18M   18M     0 100% /snap/amazon-ssm-agent/1335
+/dev/loop2       90M   90M     0 100% /snap/core/7917
+/dev/loop3       18M   18M     0 100% /snap/amazon-ssm-agent/1480
+/dev/loop4       90M   90M     0 100% /snap/core/8039
+tmpfs           798M     0  798M   0% /run/user/1015
+```
+list inode information
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ df -hi
+Filesystem     Inodes IUsed IFree IUse% Mounted on
+udev             994K   296  994K    1% /dev
+tmpfs            997K   492  997K    1% /run
+/dev/xvda1       1.5M  207K  1.3M   14% /
+tmpfs            997K     1  997K    1% /dev/shm
+tmpfs            997K     4  997K    1% /run/lock
+tmpfs            997K    18  997K    1% /sys/fs/cgroup
+/dev/loop1         15    15     0  100% /snap/amazon-ssm-agent/1335
+/dev/loop2        13K   13K     0  100% /snap/core/7917
+/dev/loop3         15    15     0  100% /snap/amazon-ssm-agent/1480
+/dev/loop4        13K   13K     0  100% /snap/core/8039
+tmpfs            997K    10  997K    1% /run/user/1015
 ```
