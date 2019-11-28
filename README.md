@@ -5,10 +5,9 @@
 4. 单机如何混沌测试，systemtap，tc
 
 
-* [overall](overall.md)
-* [process](process.md)
-* [network](network.md)
-* [performance](performance.md)
-* [chaos](chaos.md)
+* [overall](overall.md) known the current system status at a glance
+* [process](process.md) view the resources used by a process
+* [network](network.md) find bottlenecks of network and tuning
+* [chaos](chaos.md) how to conduct chaos engineering tests
 
 ![linux observability tools](images/linux_observability_tools.png)

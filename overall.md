@@ -1,5 +1,5 @@
 ## overall
-Know the current system status at a glance: cpu load, disk usage, network throughput
+Known the current system status at a glance: cpu load, disk usage, network throughput
 
 #### w - Show who is logged on and what they are doing
 ```shell
