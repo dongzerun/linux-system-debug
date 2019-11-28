@@ -28,7 +28,7 @@ LISTEN      0            10240                           *:3002                 
 LISTEN      0            10240                           *:25000                          *:*           users:(("latest",pid=31036,fd=18))
 ```
 
-* list 
+* list tcp timer
 ```shell
 root@ip-10-10-0-175:~# ss -anto
 TIME-WAIT     0           0                          10.10.0.175:7946                        10.10.0.13:34136       timer:(timewait,4.748ms,0)
@@ -47,8 +47,37 @@ TIME-WAIT     0           0                          10.10.0.175:20220          
 ESTAB         0           0                          10.10.0.175:12378                    10.196.39.136:9094        timer:(keepalive,5.632ms,0)
 ```
 ### disk write/read
-### cpu usage
+
 ### memory pagefault
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ pidstat -r -p 31036 1
+Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
+11:16:14      UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:16:15     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:16     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:17     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:18     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:19     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:20     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:21     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+11:16:22     1010     31036      0.00      0.00 2547792 1355116  16.59  latest
+```
+
+### context switch
+* `cswch` number of voluntary context switches the task made per second. A voluntary context switch occurs when a task blocks because it requires a resource that is unavailable.
+* `nvcswch` number of non voluntary context switches the task made per second. A involuntary context switch takes place when a task executes for the duration of its time slice and then is forced to relinquish the processor.
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ pidstat -w -p 31036 1
+Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
+
+06:14:47      UID       PID   cswch/s nvcswch/s  Command
+06:14:48     1010     31036    554.00    348.00  latest
+06:14:49     1010     31036    416.00    333.00  latest
+06:14:50     1010     31036    446.00    378.00  latest
+06:14:51     1010     31036    457.00    346.00  latest
+06:14:52     1010     31036    265.00    225.00  latest
+```
+### cpu usage
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ mpstat -P ALL 1
 Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
@@ -62,17 +91,6 @@ Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
 06:13:06     all    6.22    0.00    3.11    0.00    0.00    0.52    0.52    0.00    0.00   89.64
 06:13:06       0    7.22    0.00    3.09    0.00    0.00    0.00    1.03    0.00    0.00   88.66
 06:13:06       1    5.21    0.00    3.12    0.00    0.00    0.00    1.04    0.00    0.00   90.62
-```
-```shell
-zerun.dong@ip-xx-xx-xx-xx:~$ pidstat -w -p 31036 1
-Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
-
-06:14:47      UID       PID   cswch/s nvcswch/s  Command
-06:14:48     1010     31036    554.00    348.00  latest
-06:14:49     1010     31036    416.00    333.00  latest
-06:14:50     1010     31036    446.00    378.00  latest
-06:14:51     1010     31036    457.00    346.00  latest
-06:14:52     1010     31036    265.00    225.00  latest
 ```
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ pidstat -t -p 31036 1
