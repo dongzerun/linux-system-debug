@@ -2,9 +2,9 @@
 Known the current system status at a glance: cpu load, disk usage, network throughput
 
 #### w - Show who is logged on and what they are doing
-* tell us when this machine start up
-* anyone who login this machine
-* currently cpu load
+> tell us when this machine start up
+> anyone who login this machine
+> currently cpu load
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ w
  09:34:51 up 29 days, 11:39,  2 users,  load average: 1.29, 1.29, 1.22
