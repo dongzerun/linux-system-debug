@@ -46,3 +46,35 @@ KiB Swap:        0 total,        0 free,        0 used.  6767832 avail Mem
     1 root      20   0  160016   9708   7072 S   0.0  0.1   2:13.71 systemd
 ```
 ![htop](images/htop.jpg)
+
+#### iostat - Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ iostat -x 1
+Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          16.50    0.03    5.51    0.14    0.68   77.15
+
+Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+loop0            0.00    0.00      0.01      0.00     0.00     0.00   0.00   0.00    4.37    0.00   0.00     1.11     0.00   0.09   0.00
+loop1            0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    1.02    0.00   0.00     1.09     0.00   0.04   0.00
+loop2            0.01    0.00      0.01      0.00     0.00     0.00   0.00   0.00    0.05    0.00   0.00     1.08     0.00   0.00   0.00
+loop3            0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    0.08    0.00   0.00     1.08     0.00   0.00   0.00
+loop4            0.01    0.00      0.01      0.00     0.00     0.00   0.00   0.00    0.07    0.00   0.00     1.09     0.00   0.00   0.00
+loop5            0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    0.00    0.00   0.00     1.60     0.00   0.00   0.00
+xvda             0.08   25.26      1.33    458.48     0.00     8.47   2.36  25.11    0.92   12.03   0.30    17.71    18.15   0.22   0.57
+```
+#### iotop - simple top-like I/O monitor
+```shell
+root@ip-10-10-0-175:~# iotop
+Total DISK READ :       0.00 B/s | Total DISK WRITE :     918.41 K/s
+Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
+  TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
+  507 be/3 root        0.00 B/s    0.00 B/s  0.00 %  0.23 % [jbd2/xvda1-8]
+27654 be/4 root        0.00 B/s    3.92 K/s  0.00 %  0.05 % filebeat -c /etc/filebeat/filebeat.yml -path.~var/lib/filebeat -path.logs /var/log/filebeat
+27633 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.01 % filebeat -c /etc/filebeat/filebeat.yml -path.~var/lib/filebeat -path.logs /var/log/filebeat
+18331 be/3 root        0.00 B/s  706.47 K/s  0.00 %  0.00 % systemd-journald
+24081 be/4 syslog      0.00 B/s  208.01 K/s  0.00 %  0.00 % rsyslogd -n [rs:main Q:Reg]
+    1 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % systemd --system --deserialize 40
+    2 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [kthreadd]
+```
