@@ -14,7 +14,7 @@ zerun.do pts/1    xx-xx-xx-xx     09:30    1.00s  0.02s  0.00s w
 ```
 
 #### free - Display amount of free and used memory in the system
-* available = free + shared + buff/cache
+* `available` = `free` + `shared` + `buff/cache`
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ free -h
               total        used        free      shared  buff/cache   available
@@ -24,6 +24,10 @@ Swap:            0B          0B          0B
 
 #### vmstat - Report virtual memory statistics
 * pay attention to the `st` field, that means cpu stolen by other virtual machines
+* `us` means cpu usage in user space, in contrast `sy` in kernel space (too many syscall)
+* `bi` Blocks received from a block device, `bo` sent
+* `in` number of interrupts per second, `cs` number of context switches
+* `r` number of runnable processes (running or waiting), `b` number of processes in uninterruptible sleep
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ vmstat 1
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
@@ -60,6 +64,7 @@ KiB Swap:        0 total,        0 free,        0 used.  6767832 avail Mem
 ![htop](images/htop.jpg)
 
 #### iostat - Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions
+* `util` is meaningless, pay attention to `svctm`, that means service time for I/O requests
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ iostat -x 1
 Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
@@ -92,7 +97,7 @@ Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
 ```
 
 #### df - report file system disk space usage
-list disk spaces information
+* list disk spaces information
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -108,7 +113,7 @@ tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
 /dev/loop4       90M   90M     0 100% /snap/core/8039
 tmpfs           798M     0  798M   0% /run/user/1015
 ```
-list inode information
+* pay attention to inode usage
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ df -hi
 Filesystem     Inodes IUsed IFree IUse% Mounted on
@@ -126,9 +131,8 @@ tmpfs            997K    10  997K    1% /run/user/1015
 ```
 
 #### ss - another utility to investigate sockets, like netstat but more powerful
-Using netstat can cause system unstable
-
-Print summary statistics
+* do not use netstat which can cause system unstable
+* pay attention to `timewait`
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ ss -s
 Total: 968 (kernel 2400)
