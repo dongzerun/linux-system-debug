@@ -10,6 +10,14 @@ zerun.do pts/0    xx-xx-xx-xx     03:38    1:24   0.06s  0.00s sshd: zerun.dong 
 zerun.do pts/1    xx-xx-xx-xx     09:30    1.00s  0.02s  0.00s w
 ```
 
+#### free - Display amount of free and used memory in the system
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           7.8G        1.8G        3.3G        820K        2.7G        6.3G
+Swap:            0B          0B          0B
+```
+
 #### vmstat - Report virtual memory statistics
 pay attention to the `st` field
 ```shell
@@ -83,8 +91,8 @@ Actual DISK READ:       0.00 B/s | Actual DISK WRITE:      94.20 K/s
 ![iftop](images/iftop.jpg)
 
 #### df - report file system disk space usage
-```shell
 list disk spaces information
+```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            3.9G     0  3.9G   0% /dev
