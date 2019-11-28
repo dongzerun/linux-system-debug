@@ -1,5 +1,5 @@
 ### startup
-> systemctl status grabtaxi-xxxxxx.service
+* `systemctl status grabtaxi-xxxxxx.service`
 ![systemctl.jpg](images/systemctl.jpg)
 ### open files
 ### network sockets
