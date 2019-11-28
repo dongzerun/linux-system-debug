@@ -2,6 +2,7 @@
 `systemctl status grabtaxi-xxxxxx.service` we can see status, systemctl config and pid
 ![systemctl.jpg](images/systemctl.jpg)
 ### open files
+![lsof.jpg](images/lsof.jpg)
 ### network sockets
 ### disk write/read
 ### cpu usage
