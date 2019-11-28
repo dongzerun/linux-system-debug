@@ -123,3 +123,21 @@ tmpfs            997K    18  997K    1% /sys/fs/cgroup
 /dev/loop4        13K   13K     0  100% /snap/core/8039
 tmpfs            997K    10  997K    1% /run/user/1015
 ```
+
+#### ss - another utility to investigate sockets, like netstat but more powerful
+Using netstat can cause system unstable
+
+Print summary statistics
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ ss -s
+Total: 968 (kernel 2400)
+TCP:   781 (estab 601, closed 163, orphaned 0, synrecv 0, timewait 161/0), ports 0
+
+Transport Total     IP        IPv6
+*	  2400      -         -
+RAW	  0         0         0
+UDP	  45        44        1
+TCP	  618       105       513
+INET	  663       149       514
+FRAG	  0         0         0
+```
