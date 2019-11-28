@@ -13,6 +13,17 @@ zerun.do pts/0    xx-xx-xx-xx     03:38    1:24   0.06s  0.00s sshd: zerun.dong 
 zerun.do pts/1    xx-xx-xx-xx     09:30    1.00s  0.02s  0.00s w
 ```
 
+#### uname - print system information
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ uname -a
+Linux ip-xx-xx-xx-xx 4.15.0-1039-aws #41-Ubuntu SMP Wed May 8 10:43:54 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+zerun.dong@ip-xx-xx-xx-xx:~$ cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
+```
+
 #### free - Display amount of free and used memory in the system
 * `available` = `free` + `shared` + `buff/cache`
 ```shell
