@@ -141,3 +141,6 @@ TCP	  618       105       513
 INET	  663       149       514
 FRAG	  0         0         0
 ```
+
+#### nload - displays the current network usage
+![nload](images/nload.jpg)
