@@ -14,6 +14,7 @@ zerun.do pts/1    xx-xx-xx-xx     09:30    1.00s  0.02s  0.00s w
 ```
 
 #### free - Display amount of free and used memory in the system
+* available = free + shared + buff/cache
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ free -h
               total        used        free      shared  buff/cache   available
@@ -22,7 +23,7 @@ Swap:            0B          0B          0B
 ```
 
 #### vmstat - Report virtual memory statistics
-pay attention to the `st` field
+* pay attention to the `st` field, that means cpu stolen by other virtual machines
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ vmstat 1
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
