@@ -113,7 +113,7 @@ tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
 /dev/loop4       90M   90M     0 100% /snap/core/8039
 tmpfs           798M     0  798M   0% /run/user/1015
 ```
-* pay attention to inode usage
+* pay attention to inode usage, especially small files
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ df -hi
 Filesystem     Inodes IUsed IFree IUse% Mounted on
