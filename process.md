@@ -78,6 +78,7 @@ Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
 06:14:52     1010     31036    265.00    225.00  latest
 ```
 ### cpu usage
+* pay attention to `soft` field, this value very high means a bottleneck of softirq
 ```shell
 zerun.dong@ip-xx-xx-xx-xx:~$ mpstat -P ALL 1
 Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
