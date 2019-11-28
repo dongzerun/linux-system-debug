@@ -2,6 +2,7 @@
 `systemctl status grabtaxi-xxxxxx.service` we can see status, systemctl config and pid
 ![systemctl.jpg](images/systemctl.jpg)
 ### open files
+through `lsof -p pid`, we can see the stdin (fd 0) redirect to `/dev/null`, stdout and stderr to `STREAM` which taken over by `syslog`
 ![lsof.jpg](images/lsof.jpg)
 ### network sockets
 ### disk write/read
