@@ -1,3 +1,4 @@
+### ethtool - find the information of nic
 ```shell
 [root@hadoop009 var]# ethtool  em1
 Settings for em1:
@@ -23,3 +24,6 @@ Settings for em1:
         Wake-on: d
         Link detected: yes
 ```
+
+### ifconfig - packet loss
+![ifconfig](images/ifconfig.jpg)
