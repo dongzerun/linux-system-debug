@@ -70,7 +70,13 @@ dd if=/dev/zero of=test.dat  bs=8k count=1000000
 8192000000 bytes (8.2 GB) copied, 79.5475 s, 103 MB/s
 ```
 ### Tcp packet loss
-We use [tc](https://netbeez.net/blog/how-to-use-the-linux-traffic-control/) to simulate tcp packet loss and latency
+We use [tc](https://netbeez.net/blog/how-to-use-the-linux-traffic-control/), a powerful tookit
+* tcp packet latency
+* tcp packet lost by percent
+* tcp packet corrupts
+* tcp packet duplicates
+* bandwith limit
+
 #### simulate tcp latency
 1. ping www.baidu.com
 ```shell
