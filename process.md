@@ -46,7 +46,6 @@ TIME-WAIT     0           0                          10.10.0.175:7946           
 TIME-WAIT     0           0                          10.10.0.175:20220                     52.219.124.7:443         timer:(timewait,,0)
 ESTAB         0           0                          10.10.0.175:12378                    10.196.39.136:9094        timer:(keepalive,5.632ms,0)
 ```
-### disk write/read
 
 ### memory pagefault
 ```shell
@@ -116,3 +115,46 @@ Linux 4.15.0-1039-aws (ip-10-10-0-175) 	11/28/19 	_x86_64_	(2 CPU)
 06:17:31     1010         -     31064    4.00    2.00    0.00    6.00    6.00     0  |__latest
 06:17:31     1010         -     31065    1.00    0.00    0.00    1.00    1.00     0  |__latest
 ```
+
+### strace - trace system calls and signals
+```shell
+zerun.dong@ip-xx-xx-xx-xx:~$ strace hostname
+execve("/bin/hostname", ["hostname"], 0x7ffe7b9a5300 /* 16 vars */) = 0
+brk(NULL)                               = 0x55ac12529000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=39170, ...}) = 0
+mmap(NULL, 39170, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f238e1de000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260\34\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=2030544, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f238e1dc000
+mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f238dbd0000
+mprotect(0x7f238ddb7000, 2097152, PROT_NONE) = 0
+mmap(0x7f238dfb7000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7f238dfb7000
+mmap(0x7f238dfbd000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f238dfbd000
+close(3)                                = 0
+arch_prctl(ARCH_SET_FS, 0x7f238e1dd500) = 0
+mprotect(0x7f238dfb7000, 16384, PROT_READ) = 0
+mprotect(0x55ac117f1000, 4096, PROT_READ) = 0
+mprotect(0x7f238e1e8000, 4096, PROT_READ) = 0
+munmap(0x7f238e1de000, 39170)           = 0
+brk(NULL)                               = 0x55ac12529000
+brk(0x55ac1254a000)                     = 0x55ac1254a000
+uname({sysname="Linux", nodename="ip-xxxxx-x-x-xx", ...}) = 0
+fstat(1, {st_mode=S_IFCHR|0600, st_rdev=makedev(136, 0), ...}) = 0
+write(1, "ip-10-10-0-100\n", 15ip-10-10-0-100
+)        = 15
+exit_group(0)                           = ?
++++ exited with 0 +++
+```
+
+### perf - Performance analysis tools for Linux
+```shell
+root# perf record -g -p `pidof dpvs` #after 30 seconds, ctrl+c
+root# perf report -i ./perf.data
+```
+![perf.jpg](images/perf.jpg)
