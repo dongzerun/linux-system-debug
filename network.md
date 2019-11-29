@@ -26,6 +26,7 @@ Settings for em1:
 ```
 
 ### ifconfig - packet loss
+if `dropped` increased, we should check the netdev length
 ![ifconfig](images/ifconfig.jpg)
 
 ### tcpdump - dump http content
